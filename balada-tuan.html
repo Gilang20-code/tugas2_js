@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balada Tuan</title>
+</head>
+<body>
+    <script>
+        function baladaTuanTanah(arr) {
+            let pendapatan = 0;
+            let pajak = 0;
+            let komplekKosong = 0;
+
+            for (let i = 0; i < arr.length; i++) {
+                if (arr[i] > 0) {
+                pendapatan += arr[i] * 100;
+                } else if (arr[i] < 0) {
+                pajak += Math.abs(arr[i]) * 20;
+                } else {
+                komplekKosong++;
+                }
+            }
+
+            return `Tuan Postoro mendapat ${pendapatan} dollar, harus membayar pajak sebesar ${pajak} dollar, dan ada ${komplekKosong} komplek yang kosong`;
+            }
+
+            let input1 = [1, 0, -1];
+            console.log(baladaTuanTanah(input1)); // "Tuan Postoro mendapat 100 dollar, harus membayar pajak sebesar 20 dollar, dan ada 1 komplek yang kosong"
+
+            let input2 = [1, 1, 1];
+            console.log(baladaTuanTanah(input2)); // "Tuan Postoro mendapat 300 dollar, harus membayar pajak sebesar 0 dollar, dan ada 0 komplek yang kosong"
+
+            let input3 = [1, -2, 3, 0, 5];
+            console.log(baladaTuanTanah(input3)); // "Tuan Postoro mendapat 900 dollar, harus membayar pajak sebesar 40 dollar, dan ada 1 komplek yang kosong"
+
+            let input4 = [-2, -5, -1, -3];
+            console.log(baladaTuanTanah(input4)); // "Tuan Postoro mendapat 0 dollar, harus membayar pajak sebesar 400 dollar, dan ada 0 komplek yang kosong"
+
+            let input5 = [0, 0, 0];
+            console.log(baladaTuanTanah(input5)); // "Tuan Postoro mendapat 0 dollar, harus membayar pajak sebesar 0 dollar, dan ada 3 komplek yang kosong"
+
+    </script>
+</body>
+</html>

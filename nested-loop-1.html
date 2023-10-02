@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nested Loop 1</title>
+</head>
+<body>
+    <script>
+        function buyThemAll(books, budget) {
+            const bookList = books.split(',');
+            let totalBelanja = 0;
+            let sisaUang = budget;
+            
+            const bukuDibeli = [];
+            
+            for (const bookInfo of bookList) {
+                const [bookName, bookPrice] = bookInfo.split(':');
+                const hargaBuku = parseInt(bookPrice);
+                
+                if (hargaBuku <= sisaUang) {
+                    bukuDibeli.push(bookName);
+                    totalBelanja += hargaBuku;
+                    sisaUang -= hargaBuku;
+                } else {
+                    break;
+                }
+            }
+            
+            let pesan = '';
+            if (totalBelanja === 0) {
+                 pesan = `Afista tidak bisa membeli buku sama sekali, sisa uang Afista adalah ${budget}.`;
+                } else {
+                    pesan = `Afista membeli ${bukuDibeli.length} buku yaitu ${bukuDibeli.join(', ')}. Total belanja ${totalBelanja}, sisa uang Afista adalah ${sisaUang}.`;
+                }
+                return pesan;
+            }
+            console.log(buyThemAll('The Alchemist:55000,The Hobit:20000,The Power of Habit:10000', 100000));
+            console.log(buyThemAll('Javascript itu asik:143200,Belajar HTML5:78000,Lebih Mengenal CSS3:123000', 300000));
+            console.log(buyThemAll('Javascript itu asik:143200,Belajar HTML5:78000,Lebih Mengenal CSS3:123000', 20000));
+            console.log(buyThemAll('Javascript itu asik:143200,Belajar HTML5:78000,Lebih Mengenal CSS3:123000', 0));
+</script>
+</body>
+</html>

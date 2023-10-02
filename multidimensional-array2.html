@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multidimensional Array 2</title>
+</head>
+<body>
+    <script>
+        function discountChecker(customers, date) {
+            const currentDate = new Date(date);
+            const lastYearDate = new Date(currentDate.getFullYear() - 1, currentDate.getMonth(), currentDate.getDate());
+
+            const filteredCustomers = customers.filter(customer => {
+                const [price, membership] = customer;
+                const priceValue = parseFloat(price.replace("$ ", ""));
+                const purchaseDate = new Date(lastYearDate);
+
+                if (membership === "member") {
+                    purchaseDate.setFullYear(purchaseDate.getFullYear() + 1);
+                }
+
+                return purchaseDate <= currentDate && priceValue >= 50;
+            });
+
+            return filteredCustomers;
+        }
+
+        let customers1 = [
+            ["$ 228", "member"],
+            ["$ 19", "non-member"],
+            ["$ 238", "non-member"],
+            ["$ 49", "member"]
+        ];
+        console.log(discountChecker(customers1, "2022-10-28"));
+
+        var customers2 = [
+            ["$ 754", "member"],
+            ["$ 233", "member"],
+            ["$ 31", "non-member"],
+            ["$ 332", "non-member"]
+        ];
+        console.log(discountChecker(customers2, "2022-06-11"));
+    </script>
+</body>
+</html>

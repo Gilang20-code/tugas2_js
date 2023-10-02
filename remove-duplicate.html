@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remove Duplicate</title>
+</head>
+<body>
+    <script>
+       function uniqueValue(arr) {
+        const uniqueArr = [];
+        for (let i = 0; i < arr.length; i++ ){
+        const item = arr[i];
+        let isDuplicate = false;
+        for (let j = 0; j < uniqueArr.length; j++) {
+        if (item === uniqueArr[j]) {
+        isDuplicate = true;
+        break;
+        }
+        }
+        if (!isDuplicate) {
+        uniqueArr.push(item);
+        }
+        }
+        return uniqueArr
+
+        }
+        console.log(uniqueValue(['Sepatu', 'Sepatu', 'Meja', 'Meja'])) // [ 'Sepatu', 'Meja']
+        console.log(uniqueValue(['Baju', 'Penghapus', 'Penghapus', 'Sepatu', 'Penghapus'])) // ['Baju', 'Penghapus', 'Sepatu']
+        console.log(uniqueValue(['Meja','Sepatu', 'Meja','Sepatu', 'Meja', 'Meja'])) // [ 'Sepatu', 'Meja']
+        // sama kaya american got talent 
+    </script>
+</body>
+</html>

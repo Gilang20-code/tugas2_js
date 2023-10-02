@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food</title>
+</head>
+<body>
+    <script>
+        function findFood(foods, letter) {
+            var result = [];
+    
+            // Loop melalui array makanan
+            for (var i = 0; i < foods.length; i++) {
+                var food = foods[i];
+                
+                // Cek apakah huruf yang dicari (letter) ada dalam nama makanan (food)
+                if (food.includes(letter)) {
+                    result.push(food);
+                }
+            }
+            
+            return result;
+
+        }
+        
+        //yang ini hasil nya masih ada yang blm sama bang
+        console.log(findFood(['Bakso', 'Ubi', 'Nasi Goreng', 'Kolak', 'Bubur', 'Onde-onde'], 'o')); // ['Bakso', 'Nasi Goreng', 'Kolak', 'Onde-onde']
+        console.log(findFood(['Bakso', 'Ubi', 'Nasi Goreng', 'Kolak', 'Bubur', 'Onde-onde'], 'B')); // ['Bakso', 'Bubur']
+        console.log(findFood(['Bakso', 'Ubi', 'Nasi Goreng', 'Kolak', 'Bubur', 'Onde-onde'], 'u')); // ['Bubur'] 
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>American Got Talent</title>
+</head>
+<body>
+    <script>
+        function americanGotTalent(votes) {
+            var voteCount = {};
+
+            // Menghitung jumlah voting untuk setiap kandidat
+            for (var i = 0; i < votes.length; i++) {
+                var candidate = votes[i];
+                if (voteCount[candidate]) {
+                    voteCount[candidate]++;
+                } else {
+                    voteCount[candidate] = 1;
+                }
+            }
+
+            // Mencari kandidat dengan jumlah voting terbanyak
+            var winner = "";
+            var maxVotes = 0;
+            for (var candidate2 in voteCount) {
+                if (voteCount[candidate2] > maxVotes) {
+                    winner = candidate2;
+                    maxVotes = voteCount[candidate2];
+                }
+            }
+
+            // Menghasilkan output berdasarkan hasil perhitungan
+            if (winner !== "") {
+                let pas1 = voteCount['Lee Min Ho'];
+                let pas2 = voteCount['Arby'];
+                let pas3 = voteCount['Darren McFlurry'];
+
+                if(pas1 == pas2 || pas1 == pas3 || pas2 == pas3 ){
+                    return "Mohon maaf juara tidak bisa ditentukkan dalam minggu ini";
+                }else{
+                    return "Selamat juaranya adalah " + winner + ", dengan total votes yang diterima " + maxVotes + ".";
+                }
+            } else {
+                return "Mohon maaf juara tidak bisa ditentukkan dalam minggu ini";
+            }
+            
+        }
+            // yang ini hasil nya masih ada yang blm sama bang
+            console.log(americanGotTalent(['Lee Min Ho', 'Arby','Arby', 'Darren McFlurry', 'Lee Min Ho', 'Lee Min Ho']));
+            // // Selamat juaranya adalah Lee Min Ho, dengan total votes yang diterima 3
+
+            console.log(americanGotTalent(['Lee Min Ho', 'Arby', 'Arby', 'Lee Min Ho']));
+            // //  Mohon maaf juara tidak bisa ditentukkan dalam minggu ini
+
+            console.log(americanGotTalent(['Lee Min Ho', 'Arby', 'Arby']));
+            // // Selamat juaranya adalah Arby, dengan total votes yang diterima 2
+    </script>
+</body>
+</html>

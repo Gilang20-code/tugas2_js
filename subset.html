@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subset</title>
+</head>
+<body>
+    <script>
+        function Subset(arr1, arr2) {
+            const countMap = {};
+
+            for (const num of arr2) {
+                if (countMap[num] === undefined) {
+                    countMap[num] = 1;
+                } else {
+                    countMap[num]++;
+                }
+            }
+
+            for (const num of arr1) {
+                if (countMap[num] === undefined || countMap[num] === 0){
+                    return false;
+                }
+
+                countMap[num]--;
+            }
+
+            return true;
+        }
+
+        console.log(Subset([3, 9, 5], [1, 3, 9, 5, 8, 44]))// true
+        console.log(Subset([1, 3], [1, 3, 5, 7, 8])) // true
+        console.log(Subset([4, 8, 7], [7, 4, 4, 4, 9, 8]))// true
+        console.log(Subset([1, 3], [1, 33])) // false
+        console.log(Subset([1, 3, 10], [10, 8, 8, 8]))// false
+        
+    </script>
+</body>
+</html>

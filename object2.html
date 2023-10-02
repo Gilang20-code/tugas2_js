@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object 2</title>
+</head>
+<body>
+   <script>
+    function stockOpname(currentStock, newStock) {
+        if (currentStock.length === 0 || newStock.length === 0) {
+            return 'Data not found';
+        }
+
+        const stockDifference = {};
+
+  
+        for (const [itemName, quantity] of currentStock) {
+        stockDifference[itemName] = quantity;
+     }
+
+  
+        for (const [itemName, quantity] of newStock) {
+        if (stockDifference[itemName]) {
+        stockDifference[itemName] += quantity;
+        } else {
+            stockDifference[itemName] = quantity;
+        }
+    }
+    return stockDifference;
+}
+
+        let currentStock1 = [
+        ["PSU", 6],
+        ["SSD", 3],
+        ["Motherboard", 3],
+        ["Ram", 2],
+        ["Cooling", 4],
+        ["Processor", 5],
+        ];
+
+        let newStock1 = [
+        ["Ram", 6],
+        ["Motherboard", 2],
+        ["Processor", -5],
+        ["SSD", 2],
+        ["PSU", 0],
+        ["Cooling", -3],
+        ];
+
+        let currentStock2 = [
+        ["SSD", 5],
+        ["Motherboard", 4],
+        ["Processor", 1],
+        ["PSU", 3],
+        ["Cooling", 5],
+        ["Ram", 5],
+        ];
+
+        let newStock2 = [
+        ["PSU", 3],
+        ["SSD", -2],
+        ["Motherboard", -4],
+        ["Processor", 5],
+        ["Cooling", -5],
+        ["Ram", 1],
+        ];
+
+        console.log(stockOpname(currentStock1, newStock1)); 
+        console.log(stockOpname(currentStock2, newStock2)); 
+        console.log(stockOpname([], [])); 
+
+   </script> 
+</body>
+</html>

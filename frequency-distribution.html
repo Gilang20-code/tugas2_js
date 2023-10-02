@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frequency Distribution</title>
+</head>
+<body>
+    <script>
+        function getFrequencies(arr) {
+            const frequencies = {};
+
+            for (const item of arr) {
+                if (frequencies[item] === undefined) {
+                    frequencies[item] = 1;
+                } else {
+                    frequencies[item]++;
+                }
+            }
+
+            return frequencies;
+        }
+
+        console.log(getFrequencies(["A", "B", "A", "A", "A"]))  // { A: 4, B: 1 }
+        console.log(getFrequencies([1, 2, 3, 3, 2])) // { "1": 1, "2": 2, "3": 2 }
+        console.log(getFrequencies([true, false, true, false, false]))  // { true: 2, false: 3 }
+        console.log(getFrequencies([]));  // {}
+    </script>
+</body>
+</html>

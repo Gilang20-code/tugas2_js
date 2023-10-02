@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get champs</title>
+</head>
+<body>
+    <script>
+        function getChamps(list) {
+            if (list.length === 0) {
+                return "Maaf, tidak ada peserta"
+            }
+
+            let maxScore = -1;
+            let champs = [];
+
+            for (let i = 0; i < list.length; i++) {
+                if (list[i][1] > maxScore) {
+                    maxScore = list[i][1];
+                    champs = [list[i][0]];
+                } else if (list[i][1] === maxScore){
+                    champs.push(list[i][0]);
+                }
+            }
+
+            if (champs.length === 1){
+                return champs[0] + "adalah juara!";
+            } else {
+                const champsStr = champs.join(" dan ");
+                return champsStr + " sang juara!";
+            }
+        }
+        
+        var score = [
+            ["Vian", 90],
+            ["Ari", 100],
+            ["Taufik", 85],
+            ["Akbar", 95]
+        ];
+        console.log(getChamps(score));
+        
+        var score2 = [
+            ["Joseph", 100],
+            ["Jack", 90],
+            ["Beck", 95],
+            ["Alfred", 100]
+        ];
+        console.log(getChamps(score2));
+    </script>
+</body>
+</html>
